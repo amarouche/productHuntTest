@@ -1,0 +1,54 @@
+<div class="content" role="main">
+    <div class="row">
+        <div class="card">
+            <div id="formHeader">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [max]="maxDate">
+                        <input matStartDate formControlName="start" placeholder="Start date">
+                        <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker>
+                        <mat-date-range-picker-actions>
+                            <button mat-raised-button type="button" class="btn btn-primary" (click)="getRange()" matDateRangePickerApply>Apply</button>
+                        </mat-date-range-picker-actions>
+                    </mat-date-range-picker>
+                    <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                    <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                </mat-form-field>
+                <div style="display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-end;">
+                    <select style="width: 20%;height: 10%;" class="form-control" [(ngModel)]="order" (change)=getRange()>
+                        <option value="NEWEST" selected>NEWEST</option>
+                        <option value="VOTES">POPULAR</option>
+                    </select>
+                </div>
+            </div>
+            <div id="formContent" *ngIf="isLoading">
+                <mat-spinner style="margin:0 auto;" color="warn"></mat-spinner>
+            </div>
+            <div *ngIf="posts && !isLoading">
+                <div id="formContent" *ngFor="let item of posts">
+                    <div style="justify-content: flex-start; display: flex;">
+                        <a [href]="item.node.url" target="_blank"><img [src]="item.node.thumbnail.url" [alt]="item.node.thumbnail.url" style="width: 80px; height: 80px;"></a>
+                        <div style="margin-left: 3%; display: flex;flex-direction: column;justify-content: flex-start;text-align: left;">
+                            <h3 style="margin-bottom:1%">{{item.node.name}}</h3>
+                            <p> {{item.node.tagline}}</p>
+                            <p alt="comments"><span class="glyphicon glyphicon-comment"></span> ({{item.node.votesCount}})</p>
+                            <p alt="comments"><span class="glyphicon glyphicon-calendar"></span> {{item.node.createdAt | date:'MM/dd/yy h:mm:ss' }}</p>
+                        </div>
+                    </div>
+                    <div class="btn-toolbar" style="justify-content: flex-end; display: flex;">
+                        <a type="button" [href]="item.node.url" target="_blank" class="btn post_btn btn-sm">Post</a>
+                        <a type="button" [href]="item.node.website" target="_blank" class="btn web_btn btn-sm">Web site</a>
+                    </div>
+                </div><br>
+            </div>
+            <div *ngIf="!posts.length && !isLoading">
+                <div id="formContent">
+                    No post
+                </div><br>
+            </div>
+        </div>
+    </div>
+</div>

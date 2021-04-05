@@ -1,0 +1,47 @@
+.content {
+    display: flex;
+    margin: 20px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+}
+
+.card {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fbfbfbe7;
+}
+
+#formHeader {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin: 0 20% 1% 20%;
+    text-align: center;
+    color: #272727;
+}
+
+#formContent {
+    padding: 25px;
+    text-align: center;
+    margin: 0 20% 1% 20%;
+    // -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #e4e4e4a8;
+    color: #272727;
+}
+
+.post_btn {
+    color: black;
+    background-color: #4242f5;
+    width: 100px;
+    top: 300%;
+    // margin-left: 1%;
+}
+
+.web_btn {
+    color: black;
+    background-color: #12ff32c2;
+    width: 100px;
+    top: 200%;
+    // margin-left: 30%;
+}
