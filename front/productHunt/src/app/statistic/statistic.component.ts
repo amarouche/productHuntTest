@@ -16,15 +16,16 @@ export class StatisticComponent implements OnInit {
   };
   isLoading= false
 
-  public chartColors: Array<any> = [
+  chartColors: Array<any> = [
       { 
         backgroundColor: []
       }
   ]
+
   constructor(private statisticService: StatisticService) { }
+
   ngOnInit(): void {
     this.isLoading= !this.isLoading
-
     this.statisticService.getCollections().subscribe((data) => {
       this.isLoading= !this.isLoading
       let formatedData = this.statisticService.buildData(data.collections.edges)
@@ -34,11 +35,4 @@ export class StatisticComponent implements OnInit {
       return data
     })
   }
-  chartClicked(e:any):void {
-    console.log(e);
-  }
-  chartHovered(e:any):void {
-    console.log(e);
-  }
-  
 }

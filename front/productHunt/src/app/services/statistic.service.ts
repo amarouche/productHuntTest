@@ -10,13 +10,14 @@ export class StatisticService {
 
   constructor(private http: HttpClient) { }
 
+  // get collections
   getCollections(): Observable<any>{
     const url = `${environment.API_URL}/collections`;
     return this.http.get<any>(url)
   }
 
+  //build data chart
   buildData(edges){
-    console.log(edges)
     let data = {
       chartLabel:[],
       chartData:[],
@@ -27,9 +28,7 @@ export class StatisticService {
       data.chartData.push(element.node.posts.totalCount)
       data.chartColor.push('#' + Math.floor(Math.random()*16777215).toString(16))
     });
-    console.log(data)
     return data
   }
-  
 }
 

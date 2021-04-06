@@ -17,6 +17,7 @@ export class PostScreenComponent implements  OnInit {
   posts:Post[] = []
   order = "NEWEST"
   isLoading = false
+  
   constructor(private postService: PostService) {
   }
 
@@ -27,7 +28,7 @@ export class PostScreenComponent implements  OnInit {
   getRange(){
     this.isLoading= !this.isLoading
     this.postService.getPosts(this.range, this.order).subscribe((data) => {
-    this.isLoading= !this.isLoading
+      this.isLoading= !this.isLoading
       this.posts = data.posts.edges
       return data.posts.edges
     });

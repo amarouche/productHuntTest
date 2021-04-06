@@ -5,6 +5,7 @@ dotenv.config();
 const url = process.env.API_URL
 export class CollectionService {
 
+  // get collections
   getCollections = async () =>{
     try {
       const res = await fetch(url, {
@@ -23,6 +24,7 @@ export class CollectionService {
     }
   }
 
+  // create query
   getQuery = () => {
     return {
         query: `{

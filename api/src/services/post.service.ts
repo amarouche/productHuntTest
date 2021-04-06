@@ -5,6 +5,7 @@ dotenv.config();
 const url = process.env.API_URL
 export class PostService{
 
+  //get posts
   getPosts = async (req) =>{
     try {
       const res = await fetch(url, {
@@ -22,7 +23,7 @@ export class PostService{
       return error;
     }
   }
-
+  // create query
   getQuery = (req) => {
     const params = this.formatParams(req)
     return {
@@ -61,6 +62,7 @@ export class PostService{
     };
   }
 
+  // add params to query
   formatParams = (req) : string => {
     let params = req && req.start ? 'postedAfter:"'+req.start+'"': ''
     if(req && req.end){
@@ -72,6 +74,3 @@ export class PostService{
     return params
   }
 }
-// errors:
-//    [ { error: 'rate_limit_reached',
-//        error_description: 'Sorry. You have exceeded the API rate limit, please try again later.',
