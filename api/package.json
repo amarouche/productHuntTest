@@ -4,12 +4,13 @@
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "test": "mocha -r ts-node/register 'tests/**/*spec.ts'",
-        "prebuild": "rm -rf dist/* && tslint -c tslint.json -p tsconfig.json --fix",
+        "prebuild2": "rm -rf dist/* && tslint -c tslint.json -p  tsconfig.json --fix",
+        "prebuild": "rm -rf dist/*",
         "build": "tsc && cp -rf package.json dist/package.json",
         "prestart": "npm run build",
         "start": "ts-node .",
-        "dev": "nodemon --watch 'src/**/*.ts' --ignore 'tests/**/*.spec.ts' --exec 'ts-node' src/index.ts"
+        "dev": "nodemon --watch 'src/**/*.ts' --ignore 'tests/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+        "test": "mocha -r ts-node/register 'tests/**/*spec.ts'"
     },
     "author": "",
     "license": "ISC",

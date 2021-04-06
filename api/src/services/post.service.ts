@@ -5,7 +5,7 @@ dotenv.config();
 const url = process.env.API_URL
 export class PostService{
 
-  //get posts
+  // get posts
   getPosts = async (req) =>{
     try {
       const res = await fetch(url, {

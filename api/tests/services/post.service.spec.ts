@@ -6,7 +6,7 @@ import { PostService } from '../../src/services/post.service'
 
 dotenv.config();
 describe('Post service', function() {
-  
+
   before('env value exist "API_URL"',function() {
     chai.expect(process.env.API_URL).to.not.undefined
   });

@@ -1,7 +1,5 @@
 # productHunt
 
-hubvisorySource
-
 ## BACKEND
 Product hunt API
 
@@ -13,11 +11,16 @@ cd productHuntTest/api
 
 ### Install package
 
-npm install 
+Run `npm install`
 
-### Run project
+### Run project with nodemon
 
-npm run dev OR npm start
+ Run `npm run dev` 
+
+### Run project with Docker
+Run `docker build -t apimalou .` to build project
+
+Run `docker run -p 3000:3000 apimalou` to run project
 
 
 ## FRONTEND
@@ -26,7 +29,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Install package
 
-npm install 
+Run `npm install`
 
 
 ### Development server
